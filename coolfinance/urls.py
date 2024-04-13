@@ -1,7 +1,8 @@
 from django.contrib.auth import views as auth_views
 from django.urls import path
 from . import views
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     
     path('create_ativo/',views.create_ativo, name='create_ativo' ),
@@ -16,7 +17,7 @@ urlpatterns = [
 
     path('balance/',views.balance, name='balance' ),
     path('',views.index, name='index'),
-    
-
-
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
