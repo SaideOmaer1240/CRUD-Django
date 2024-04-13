@@ -1,0 +1,94 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<div class="conteiner_balance">
+<div class="container-cards_regist balance">
+    <div class="card forms">
+      <div class="box">
+        <div class="content balance">
+            <h1 class="textgrad" style="font-size: 29px; text-decoration-line:underline; padding-left:20px;">Todos Passivos</h1>
+            <ul>
+                {% for passivo in passivos %}
+                <li>
+                   <a class="apagar_link" href="{% url 'read_passivo' %}">{{ passivo.nome }} -  {{ passivo.valor }} MT</a> 
+                    
+                </li>
+                {% empty %}
+                <p style="flex-wrap: wrap; padding-right: 2px;">Isso é bom, voce não tem passivos. <br>Mas se quer adicionar, fique a vontade. <br> </p>
+                <a id="pqn" href="{% url 'create_passivo' %}" class="link">Adicionar Passivo</a>
+    
+            {% endfor %}
+        
+            </ul>
+        </div>
+      </div>
+    </div>
+      
+   
+  </div> 
+ 
+  <div class="container-cards_regist balance">
+     
+    <div class="card forms">
+        <div class="box">
+          <div class="content balance">
+       
+                <h1  class="textgrad" >Balanço Patrimonial</h1>
+                
+                <h2 class="section-title" id="codmoe">Total Ativos: {{ total_ativos }} Mt</h2>
+                <h2 class="section-title" id="pascodmoe">Total Passivos: {{ total_passivos }} MT</h2>
+                
+                {% if  patrimonio_liquido < 0 %}
+                <h2 class="section-title" id="patrimo" style="color:rgb(189, 100, 100);">Patrimônio Líquido: {{ patrimonio_liquido }} MT <br> </h2>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">Voce esta no estado pessimo. Tens mais passivos do que ativos.<br>Ti recomendo a realizar menos gastos e si preocupar a adquirir mais ativos</p>
+                {% elif patrimonio_liquido == 0 %}
+                <h2 class="section-title" id="patrimo" style="color:rgb(207, 207, 152);">Patrimônio Líquido: {{ patrimonio_liquido }} MT</h2>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">Voce não tem passivos nem ativos. <br> Recomendo começar a adquirir ativos</p>
+                {% elif patrimonio_liquido > 0 %}
+                <h2 class="section-title" id="patrimo" style="color:rgb(151, 199, 151);">Patrimônio Líquido: {{ patrimonio_liquido }} MT</h2>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">Parabens! voce tem mais ativos do que passivos. <br> Continui assim, realizando menos gastos e adquirindo mais ativos.</p>
+        
+                {% endif %}
+        
+                    <div class="conteiner_div_for_btn">
+                      <div class="conteinerfor_btn">
+                        <a href="{% url 'read_passivo' %}" class="link">Editar ou apagar Passivo</a>
+                        <a href="{% url 'read_ativo' %}" class="link">Editar ou apagar Ativo</a>
+                      </div>
+                       
+                        <div class="conteiner_for_btn">
+                        <a href="{% url 'create_passivo' %}" class="link">Adicionar Passivo</a>
+                        <a href="{% url 'create_ativo' %}" class="link">Adicionar Ativo</a>
+                        </div>
+                    </div>
+               
+          </div>
+        </div>
+      </div>
+       
+   
+  </div> 
+  <div class="container-cards_regist balance">
+      <div class="card forms">
+        <div class="box">
+          <div class="content balance">
+            <h1 class="textgrad" style="font-size: 29px; text-decoration-line:underline; padding-left:20px;">Todos Activo</h1>
+
+            <ul>
+                {% for ativo in ativos %}
+                <li > <a class="apagar_link" href="{% url 'read_ativo'  %}">{{ativo.nome }} -  {{ ativo.valor }}</a> </li>
+
+                 
+                 {% endfor %}
+        
+            </ul>  
+                                   
+    
+        
+          </div>
+        </div>
+      </div>
+   
+  </div>
+</div>
+{% endblock content %}

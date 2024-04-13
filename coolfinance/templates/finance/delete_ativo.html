@@ -1,0 +1,34 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<div class="conteiner_balance">
+<div class="container-cards_regist balance read">
+    <div class="card forms">
+      <div class="box">
+        <div class="content balance">
+            <h1 class="textgrad">Apagar Ativo "{{ ativo.nome }}"</h1>
+
+            <p>Deseja realmente apagar o ativo "{{ ativo.nome }}"?</p>
+        
+            <div class="conteiner_div_for_btn">
+                <div class="conteinerfor_btn"> 
+                 
+                <a class="link" href="{% url 'balance' %}" style="margin-top: 20px;">Cancelar a exclusão</a>
+                <a href="#" class="link apagar" onclick="document.getElementById('form_delete_ativo').submit();" >Eu confirmo que quero apagar</a> 
+            
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+      
+   
+  </div> 
+  
+  
+</div>
+<form method="post" action="{% url 'delete_activo' ativo.id %}" id="form_delete_ativo" style="display: none;">
+    {% csrf_token %}
+</form>
+{% endblock content %}

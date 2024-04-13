@@ -1,0 +1,41 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<div class="conteiner_balance">
+<div class="container-cards_regist balance read">
+    <div class="card forms">
+      <div class="box">
+        <div class="content balance">
+            
+                <h1 class="textgrad">Lista de Ativos</h1>
+                
+                <ul class="list_balance">
+                    {% for ativo in ativos %}
+                <p class="paragrafo_link">
+                    {{ ativo.nome }} -  {{ ativo.valor }} MT
+                    <a class="link edit" href="{% url 'update_ativo' ativo.id %}">Editar</a>
+                    <a class="link delete" id="apagar" href="{% url 'delete_activo' ativo.id %}">Apagar</a>
+                </p>
+            {% endfor %}
+            
+                </ul>
+              
+                <div class="conteiner_div_for_btn">
+                    <div class="conteinerfor_btn">
+                <a class="link" href="{% url 'balance' %}">Balanço Patrimonial</a>
+                <a style="margin: 10px;" href="{% url 'create_ativo' %}" class="link">Adicionar Ativo</a>
+            
+                <a   href="{% url 'read_passivo' %}" class="link">Visualizar Passivos</a>
+            </div>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+      
+   
+  </div> 
+  
+  
+</div>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<div class="container-cards_regist">
+    <div class="card forms">
+      <div class="box">
+        <div class="content" style="overflow: hidden;">
+            <div class="forma">
+                 
+                <h3 style="color: white;">Usuário: {{request.user}}</h3>
+                <h3 style="color: white;">Nome: {{request.user.first_name }} {{request.user.last_name }}</h3>
+                <h3 style="color: white;">E-mail: {{request.user.email}}</h3>
+                
+                <div class="botao">
+                
+                    <li class="list"><a href="{% url 'password_change' %}" class="list_link criar_conta">Aterar senha</a></li>
+                  
+                
+                </div>
+            </div>
+            
+           
+                
+           
+           
+
+        </div>
+      </div>
+    </div>
+   
+  </div> 
+{% endblock content %}

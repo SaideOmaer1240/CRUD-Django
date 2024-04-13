@@ -1,0 +1,56 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+<div class="conteiner_balance">
+
+    <div class="container-cards_regist balance">
+     
+        <div class="card forms">
+            <div class="box">
+              <div class="content balance">
+           
+                    <h1  class="textgrad" >Informações da conta</h1>
+                    <h3 style="color: white;">Usuário: {{request.user}}</h3>
+                    <h3 style="color: white;">Nome: {{request.user.first_name }} {{request.user.last_name }}</h3>
+                    <h3 style="color: white;">E-mail: {{request.user.email}}</h3>
+                    {% if  patrimonio_liquido < 0 %}
+                    <h3 class="section-title" id="patrimo" style="color:rgb(189, 100, 100);">Patrimônio Líquido: {{ patrimonio_liquido }} <br> </h3>
+                    {% elif patrimonio_liquido == 0 %}
+                    <h3 class="section-title" id="patrimo" style="color:rgb(207, 207, 152);">Patrimônio Líquido: {{ patrimonio_liquido }}</h3>
+                    {% elif patrimonio_liquido > 0 %}
+                    <h3 class="section-title" id="patrimo" style="color:rgb(151, 199, 151);">Patrimônio Líquido: {{ patrimonio_liquido }}</h3>
+            
+                    {% endif %}
+                    
+                    
+  
+      
+                   
+              </div>
+            </div>
+          </div>
+           
+       
+      </div> 
+      <div class="container-cards_regist balance">
+     
+        <div class="card forms">
+            <div class="box">
+              <div class="content balance">
+           
+                    <h1  class="textgrad" >Dar feedback e Sugerir Melhorias</h1>
+                    <div class="conteinerfor_btn">
+                      <a href="{% url 'feedback' %}" class="link">Sugerir adição ou melhoria de recursos</a>
+                    </div>
+  
+      
+                   
+              </div>
+            </div>
+          </div>
+           
+       
+      </div> 
+  
+</div>
+{% endblock content %}

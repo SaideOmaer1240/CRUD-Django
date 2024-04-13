@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wgt@300&display=swap');
+@import url('sidebar.css');
+@import url('propriedades.css');
+@import url('cards.css');
+@import url('conta.css');
+@import url('balance_link.css');
+@import url('cookies.css');
+/* Funciona no Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(96, 96, 175) var(--primary-color);
+}
+
+/* Funciona no Chrome, Edge e Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(64, 126, 241);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: blueviolet;
+  border-radius: 20px;
+  border: none;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+#corpo{
+  background: linear-gradient(70.87deg, #233665 17%, #3152A7 53.58%, #233665 96.31%), #FFFFFF;;
+}
+
+  .container_partial {
+    display: grid;
+    grid-template-columns: 0 auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas: 
+      "navbar navbar"
+      "sidebar main";
+    height: 100vh;
+    transition: 1s;
+  }
+  .container_partial.base {
+    display: grid;
+    grid-template-columns: 50px auto;
+  }
+  .container_partial.expandir {
+  transition: 1s;
+    grid-template-columns: 250px auto;
+  }
+  .btn-expandir > svg {
+    color: #fff;
+    font-size: 34px;
+    cursor: pointer;
+    margin-left: 0;
+}
+  .navbar {
+    grid-area: navbar;
+    
+    background: linear-gradient(var(--primary-color), var(--claro-color) ); 
+    color: white;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+ .mark{
+    font-size: larger;
+    font-weight: 700;
+ } 
+ .conteiner_list, .lists{
+    display: flex;
+ }
+ .list{
+    margin-top: 5px;
+ }
+ .list_link {
+    background: linear-gradient(41deg, #0d1212, #3da077, #0d1212);
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin:20px 5px;
+    color: aliceblue;
+    font-size: 16px;
+ }
+ .list_link:hover{
+    background: linear-gradient(180deg, #0d1212, #3da077, #0d1212);
+    font-weight: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ .list_link.item{
+    background: linear-gradient(180deg, #0d1212, #141414, #0d1212);
+ }
+ .list_link.item:hover{
+    background: linear-gradient(42deg, #0d1212, #575454, #0d1212);
+     
+ }
+ .list_link.login{
+    background: linear-gradient(180deg, #0d1212, #505050, #0d1212);
+ }
+ .list_link.login:hover{
+    background: linear-gradient(40deg, #0d1212, #505050, #0d1212);
+ }
+ .list_link.sair{
+  background: linear-gradient(40deg, #0d1212, #d80909, #0d1212);
+}
+.list_link.sair:hover{
+  background: linear-gradient(180deg, #0d1212, #d80909, #0d1212);
+}
+
+
+  .sidebar {
+    grid-area: sidebar;
+   
+    background: linear-gradient(var(--primary-color), var(--claro-color) ); 
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    overflow-y: auto;  
+    transition: width 0.3s ease;  
+  }
+  
+  .main-content {
+    grid-area: main;
+    padding: 20px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  
+  @media(max-width: 530px){
+    .container_partial {
+      display: grid;
+      grid-template-columns: 0px auto;
+      grid-template-rows: 60px auto;
+      grid-template-areas: 
+        "navbar navbar"
+        "main";
+      height: 100vh;
+      transition: 1s;
+    }
+  }
